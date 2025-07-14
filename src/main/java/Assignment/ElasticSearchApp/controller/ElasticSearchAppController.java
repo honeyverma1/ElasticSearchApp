@@ -2,10 +2,9 @@ package Assignment.ElasticSearchApp.controller;
 
 
 import Assignment.ElasticSearchApp.DTO.SearchResponse;
-import Assignment.ElasticSearchApp.entity.CourseDocument;
 import Assignment.ElasticSearchApp.service.ElasticSearchAppServices;
+import Assignment.ElasticSearchApp.service.SuggestService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.elasticsearch.core.SearchHits;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -22,11 +22,14 @@ import java.util.List;
 public class ElasticSearchAppController {
 
     @Autowired
+    private SuggestService suggestService;
+
+    @Autowired
     private ElasticSearchAppServices elasticSearchAppServices;
 
     @GetMapping("/health-check")
     public ResponseEntity<?> healthcheck(){
-        return new ResponseEntity<>("hurray! the api is running fine!!", HttpStatus.OK);
+        return new ResponseEntity<>("the api is running!!", HttpStatus.OK);
     }
 
     @GetMapping("/search")
@@ -46,4 +49,10 @@ public class ElasticSearchAppController {
         SearchResponse searchResponse = elasticSearchAppServices.advancedSearch(q, minAge, maxAge, category, type, minPrice, maxPrice, startDate, sort, page, size);
         return new ResponseEntity<>(searchResponse, HttpStatus.OK);
     }
+
+    @GetMapping("/suggest")
+    public ResponseEntity<List<String>> autocomplete(@RequestParam String partial) throws IOException {
+        return new ResponseEntity<>(suggestService.getSuggestions(partial), HttpStatus.OK);
+    }
+
 }

@@ -4,10 +4,8 @@ package Assignment.ElasticSearchApp.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.springframework.data.annotation.Id;
-import org.springframework.data.elasticsearch.annotations.DateFormat;
-import org.springframework.data.elasticsearch.annotations.Document;
-import org.springframework.data.elasticsearch.annotations.Field;
-import org.springframework.data.elasticsearch.annotations.FieldType;
+import org.springframework.data.elasticsearch.annotations.*;
+import org.springframework.data.elasticsearch.core.suggest.Completion;
 
 import java.time.LocalDateTime;
 
@@ -40,6 +38,10 @@ public class CourseDocument {
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "yyyy-MM-dd'T'HH:mm:ss")
     private LocalDateTime nextSessionDate;
 
+    @CompletionField
+    private Completion suggest;
+
+
     public CourseDocument(String id, String title, String description, String category, String type, String gradeRange, int minAge, int maxAge, double price, LocalDateTime nextSessionDate) {
         this.id = id;
         this.title = title;
@@ -52,6 +54,14 @@ public class CourseDocument {
         this.price = price;
         this.nextSessionDate = nextSessionDate;
     }
+
+    public Completion getSuggest() {
+        return suggest;
+    }
+    public void setSuggest(Completion suggest) {
+        this.suggest = suggest;
+    }
+
 
     public String getId() {
         return id;

@@ -108,7 +108,7 @@ public class ElasticSearchAppServices {
 
         Sort sortOrder = Sort.unsorted();
 
-        if(sortOrder != null && sort.isBlank()) {
+        if(sort != null && !sort.isBlank()) {
             switch (sort) {
                 case "upcoming" -> sortOrder = Sort.by(Sort.Direction.ASC, "nextSessionDate");
                 case "priceAsc" -> sortOrder = Sort.by(Sort.Direction.ASC, "price");
@@ -118,6 +118,7 @@ public class ElasticSearchAppServices {
 
         CriteriaQuery query = new CriteriaQuery(criteria);
         query.setPageable(PageRequest.of(page, size));
+
         query.addSort(sortOrder);
 
         SearchHits<CourseDocument> hits = elasticsearchOperations.search(query, CourseDocument.class);
