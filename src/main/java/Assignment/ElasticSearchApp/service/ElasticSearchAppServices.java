@@ -1,34 +1,35 @@
 package Assignment.ElasticSearchApp.service;
 
-
 import Assignment.ElasticSearchApp.DTO.SearchResponse;
 import Assignment.ElasticSearchApp.entity.CourseDocument;
 import Assignment.ElasticSearchApp.repository.ElasticSearchAppRepo;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import org.elasticsearch.action.search.SearchRequest;
+import org.elasticsearch.client.RequestOptions;
+import org.elasticsearch.client.RestHighLevelClient;
+import org.elasticsearch.common.unit.Fuzziness;
+import org.elasticsearch.index.query.BoolQueryBuilder;
+import org.elasticsearch.index.query.QueryBuilders;
+import org.elasticsearch.search.SearchHit;
+import org.elasticsearch.search.builder.SearchSourceBuilder;
+import org.elasticsearch.search.sort.SortOrder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
-import org.springframework.data.elasticsearch.core.ElasticsearchOperations;
-import org.springframework.data.elasticsearch.core.SearchHits;
-import org.springframework.data.elasticsearch.core.query.Criteria;
-import org.springframework.data.elasticsearch.core.query.CriteriaQuery;
 import org.springframework.stereotype.Service;
 
+import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
 public class ElasticSearchAppServices {
 
-    private final ElasticsearchOperations elasticsearchOperations;
-
-    public ElasticSearchAppServices(ElasticsearchOperations elasticsearchOperations) {
-        this.elasticsearchOperations = elasticsearchOperations;
-    }
+    private final RestHighLevelClient restHighLevelClient;
 
     private static final Logger log = LoggerFactory.getLogger(ElasticSearchAppServices.class);
 
@@ -38,6 +39,10 @@ public class ElasticSearchAppServices {
 
     @Autowired
     private ObjectMapper objectMapper;
+
+    public ElasticSearchAppServices(RestHighLevelClient restHighLevelClient) {
+        this.restHighLevelClient = restHighLevelClient;
+    }
 
     public void bulkIndexing() {
         if(elasticSearchAppRepo.count() > 0) {
@@ -69,65 +74,71 @@ public class ElasticSearchAppServices {
             String sort,
             int page,
             int size
-    ) {
-        Criteria criteria = new Criteria();
+    ) throws IOException {
+        SearchRequest searchRequest = new SearchRequest("coursedocument");
+        SearchSourceBuilder sourceBuilder = new SearchSourceBuilder();
+
+        BoolQueryBuilder boolQuery = QueryBuilders.boolQuery();
 
         if(q != null && !q.isBlank()) {
-            Criteria temp = new Criteria("title").matches(q)
-                    .or(new Criteria("description").matches(q));
-            criteria = criteria.and(temp);
-        }
-
-        if(minAge != null) {
-            criteria.and(new Criteria("minAge").greaterThanEqual(minAge));
-        }
-
-        if(maxAge != null) {
-            criteria.and(new Criteria("maxAge").lessThanEqual(maxAge));
+            boolQuery.should(QueryBuilders.matchQuery("title", q).fuzziness(Fuzziness.AUTO));
+            boolQuery.should(QueryBuilders.matchQuery("description", q));
         }
 
         if(category != null && !category.isBlank()) {
-            criteria.and(new Criteria("category").matches(category));
+            boolQuery.filter(QueryBuilders.termQuery("category", category));
         }
 
         if (type != null && !type.isBlank()) {
-            criteria = criteria.and(new Criteria("type").is(type));
+            boolQuery.filter(QueryBuilders.termQuery("type", type));
+        }
+
+        if(minAge != null) {
+            boolQuery.filter(QueryBuilders.rangeQuery("minAge").gte(minAge));
+        }
+
+        if(maxAge != null) {
+            boolQuery.filter(QueryBuilders.rangeQuery("maxAge").lte(maxAge));
         }
 
         if(minPrice != null) {
-            criteria.and(new Criteria("price").greaterThanEqual(minPrice));
+            boolQuery.filter(QueryBuilders.rangeQuery("price").gte(minPrice));
         }
 
         if(maxPrice != null) {
-            criteria.and(new Criteria("price").lessThanEqual(maxPrice));
+            boolQuery.filter(QueryBuilders.rangeQuery("price").lte(maxPrice));
         }
 
         if (startDate != null) {
-            criteria = criteria.and(new Criteria("nextSessionDate").greaterThanEqual(startDate));
+            boolQuery.filter(QueryBuilders.rangeQuery("nextSessionDate").gte(startDate));
         }
 
         Sort sortOrder = Sort.unsorted();
 
-        if(sort != null && !sort.isBlank()) {
+        if (sort != null && !sort.isBlank()) {
             switch (sort) {
-                case "upcoming" -> sortOrder = Sort.by(Sort.Direction.ASC, "nextSessionDate");
-                case "priceAsc" -> sortOrder = Sort.by(Sort.Direction.ASC, "price");
-                case "priceDesc" -> sortOrder = Sort.by(Sort.Direction.DESC, "price");
+                case "upcoming" -> sourceBuilder.sort("nextSessionDate", SortOrder.ASC);
+                case "priceAsc" -> sourceBuilder.sort("price", SortOrder.ASC);
+                case "priceDesc" -> sourceBuilder.sort("price", SortOrder.DESC);
             }
         }
 
-        CriteriaQuery query = new CriteriaQuery(criteria);
-        query.setPageable(PageRequest.of(page, size));
+        sourceBuilder.from(page * size);
+        sourceBuilder.size(size);
+        sourceBuilder.query(boolQuery);
 
-        query.addSort(sortOrder);
+        searchRequest.source(sourceBuilder);
 
-        SearchHits<CourseDocument> hits = elasticsearchOperations.search(query, CourseDocument.class);
+        org.elasticsearch.action.search.SearchResponse searchResponse = restHighLevelClient.search(searchRequest, RequestOptions.DEFAULT);
 
-        log.info("Executing search with criteria: {}", criteria);
 
-        List<CourseDocument> docs = hits.getSearchHits().stream()
-                .map(hit -> hit.getContent())
-                .toList();
-        return new SearchResponse(docs, hits.getTotalHits());
+        List<CourseDocument> courses = new ArrayList<>();
+        for (SearchHit hit : searchResponse.getHits()) {
+            String json = hit.getSourceAsString();
+            CourseDocument doc = objectMapper.readValue(json, CourseDocument.class);
+            courses.add(doc);
+        }
+
+        return new SearchResponse(courses, searchResponse.getHits().getTotalHits().value);
     }
 }

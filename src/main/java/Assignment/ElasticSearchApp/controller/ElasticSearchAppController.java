@@ -45,7 +45,7 @@ public class ElasticSearchAppController {
             @RequestParam(defaultValue = "upcoming") String sort,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size
-            ) {
+            ) throws IOException {
         SearchResponse searchResponse = elasticSearchAppServices.advancedSearch(q, minAge, maxAge, category, type, minPrice, maxPrice, startDate, sort, page, size);
         return new ResponseEntity<>(searchResponse, HttpStatus.OK);
     }
