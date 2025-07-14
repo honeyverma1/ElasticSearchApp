@@ -268,5 +268,485 @@
     "suggest": {
       "input": ["Science Club"]
     }
+  },
+  {
+    "id": "19",
+    "title": "Creative Writing Workshop",
+    "description": "Unleash your imagination and improve your writing skills.",
+    "category": "Literature",
+    "type": "COURSE",
+    "gradeRange": "5thTo10th",
+    "minAge": 10,
+    "maxAge": 16,
+    "price": 225.00,
+    "nextSessionDate": "2025-08-02T11:00:00",
+    "suggest": {
+      "input": ["Creative Writing Workshop"]
+    }
+  },
+  {
+    "id": "20",
+    "title": "Junior Robotics Course",
+    "description": "Learn the basics of robotics using simple programmable kits.",
+    "category": "Technology",
+    "type": "COURSE",
+    "gradeRange": "4thTo8th",
+    "minAge": 9,
+    "maxAge": 14,
+    "price": 350.00,
+    "nextSessionDate": "2025-08-10T10:00:00",
+    "suggest": {
+      "input": ["Junior Robotics Course"]
+    }
+  },
+  {
+    "id": "21",
+    "title": "Eco Warriors Club",
+    "description": "Join us in creating a greener planet through hands-on activities.",
+    "category": "Environment",
+    "type": "CLUB",
+    "gradeRange": "4thTo9th",
+    "minAge": 9,
+    "maxAge": 15,
+    "price": 110.00,
+    "nextSessionDate": "2025-08-12T14:00:00",
+    "suggest": {
+      "input": ["Eco Warriors Club"]
+    }
+  },
+  {
+    "id": "22",
+    "title": "Beginner Spanish Course",
+    "description": "Hola! Learn basic Spanish through fun and interactive lessons.",
+    "category": "Languages",
+    "type": "COURSE",
+    "gradeRange": "5thTo10th",
+    "minAge": 10,
+    "maxAge": 16,
+    "price": 320.00,
+    "nextSessionDate": "2025-08-18T10:30:00",
+    "suggest": {
+      "input": ["Beginner Spanish Course"]
+    }
+  },
+  {
+    "id": "23",
+    "title": "Space Explorers Camp",
+    "description": "A one-time immersive event exploring planets and rockets.",
+    "category": "Science",
+    "type": "ONE_TIME",
+    "gradeRange": "3rdTo7th",
+    "minAge": 8,
+    "maxAge": 13,
+    "price": 90.00,
+    "nextSessionDate": "2025-09-04T09:00:00",
+    "suggest": {
+      "input": ["Space Explorers Camp"]
+    }
+  },
+  {
+    "id": "24",
+    "title": "Storytelling Club",
+    "description": "Share and create stories with your peers each week.",
+    "category": "Literature",
+    "type": "CLUB",
+    "gradeRange": "2ndTo6th",
+    "minAge": 7,
+    "maxAge": 12,
+    "price": 85.00,
+    "nextSessionDate": "2025-07-31T16:00:00",
+    "suggest": {
+      "input": ["Storytelling Club"]
+    }
+  },
+  {
+    "id": "25",
+    "title": "Photography Basics",
+    "description": "Master the art of taking great photos with any camera.",
+    "category": "Arts",
+    "type": "COURSE",
+    "gradeRange": "6thTo12th",
+    "minAge": 11,
+    "maxAge": 18,
+    "price": 275.00,
+    "nextSessionDate": "2025-08-15T13:00:00",
+    "suggest": {
+      "input": ["Photography Basics"]
+    }
+  },
+  {
+    "id": "26",
+    "title": "Art & Craft Bonanza",
+    "description": "A single-day creative burst of painting, origami, and more.",
+    "category": "Arts",
+    "type": "ONE_TIME",
+    "gradeRange": "1stTo5th",
+    "minAge": 6,
+    "maxAge": 11,
+    "price": 60.00,
+    "nextSessionDate": "2025-08-05T11:30:00",
+    "suggest": {
+      "input": ["Art & Craft Bonanza"]
+    }
+  },
+  {
+    "id": "27",
+    "title": "Public Speaking Club",
+    "description": "Develop confidence and speaking skills through fun activities.",
+    "category": "Communication",
+    "type": "CLUB",
+    "gradeRange": "4thTo10th",
+    "minAge": 9,
+    "maxAge": 16,
+    "price": 150.00,
+    "nextSessionDate": "2025-07-27T14:30:00",
+    "suggest": {
+      "input": ["Public Speaking Club"]
+    }
+  },
+  {
+    "id": "28",
+    "title": "Python Programming Course",
+    "description": "Start coding with Python — ideal for beginners and young coders.",
+    "category": "Technology",
+    "type": "COURSE",
+    "gradeRange": "6thTo12th",
+    "minAge": 12,
+    "maxAge": 18,
+    "price": 399.00,
+    "nextSessionDate": "2025-09-01T10:00:00",
+    "suggest": {
+      "input": ["Python Programming Course"]
+    }
+  },
+  {
+    "id": "29",
+    "title": "DIY Science Fair",
+    "description": "Showcase your science experiments in this one-time fair.",
+    "category": "Science",
+    "type": "ONE_TIME",
+    "gradeRange": "4thTo9th",
+    "minAge": 9,
+    "maxAge": 14,
+    "price": 70.00,
+    "nextSessionDate": "2025-08-20T09:30:00",
+    "suggest": {
+      "input": ["DIY Science Fair"]
+    }
+  },
+  {
+    "id": "30",
+    "title": "Drama Club",
+    "description": "Act, improvise, and perform scenes with a creative group.",
+    "category": "Performing Arts",
+    "type": "CLUB",
+    "gradeRange": "5thTo10th",
+    "minAge": 10,
+    "maxAge": 15,
+    "price": 140.00,
+    "nextSessionDate": "2025-07-26T15:00:00",
+    "suggest": {
+      "input": ["Drama Club"]
+    }
+  },
+  {
+    "id": "31",
+    "title": "Kids Yoga Class",
+    "description": "Improve flexibility, focus, and relaxation through yoga.",
+    "category": "Health",
+    "type": "COURSE",
+    "gradeRange": "1stTo5th",
+    "minAge": 6,
+    "maxAge": 11,
+    "price": 199.00,
+    "nextSessionDate": "2025-08-11T09:00:00",
+    "suggest": {
+      "input": ["Kids Yoga Class"]
+    }
+  },
+  {
+    "id": "32",
+    "title": "Debate Club",
+    "description": "Learn argument structure and sharpen critical thinking.",
+    "category": "Communication",
+    "type": "CLUB",
+    "gradeRange": "6thTo12th",
+    "minAge": 12,
+    "maxAge": 18,
+    "price": 130.00,
+    "nextSessionDate": "2025-08-01T16:00:00",
+    "suggest": {
+      "input": ["Debate Club"]
+    }
+  },
+  {
+    "id": "33",
+    "title": "Junior Chef Workshop",
+    "description": "Hands-on cooking sessions for young food enthusiasts.",
+    "category": "Life Skills",
+    "type": "ONE_TIME",
+    "gradeRange": "3rdTo7th",
+    "minAge": 8,
+    "maxAge": 13,
+    "price": 80.00,
+    "nextSessionDate": "2025-08-25T11:00:00",
+    "suggest": {
+      "input": ["Junior Chef Workshop"]
+    }
+  },
+  {
+    "id": "34",
+    "title": "Financial Literacy Course",
+    "description": "Understand saving, spending, and budgeting at an early age.",
+    "category": "Life Skills",
+    "type": "COURSE",
+    "gradeRange": "6thTo12th",
+    "minAge": 12,
+    "maxAge": 18,
+    "price": 250.00,
+    "nextSessionDate": "2025-08-09T10:00:00",
+    "suggest": {
+      "input": ["Financial Literacy Course"]
+    }
+  },
+  {
+    "id": "35",
+    "title": "Astronomy Night",
+    "description": "Stargaze and learn about constellations in this single-night event.",
+    "category": "Science",
+    "type": "ONE_TIME",
+    "gradeRange": "4thTo8th",
+    "minAge": 9,
+    "maxAge": 14,
+    "price": 60.00,
+    "nextSessionDate": "2025-08-29T19:00:00",
+    "suggest": {
+      "input": ["Astronomy Night"]
+    }
+  },
+  {
+    "id": "36",
+    "title": "Coding Bootcamp for Beginners",
+    "description": "A foundational course for kids new to programming.",
+    "category": "Technology",
+    "type": "COURSE",
+    "gradeRange": "5thTo10th",
+    "minAge": 10,
+    "maxAge": 15,
+    "price": 399.00,
+    "nextSessionDate": "2025-08-07T10:30:00",
+    "suggest": {
+      "input": ["Coding Bootcamp for Beginners"]
+    }
+  },
+  {
+    "id": "37",
+    "title": "Brain Teasers Club",
+    "description": "Solve puzzles and sharpen your mind weekly.",
+    "category": "Mathematics",
+    "type": "CLUB",
+    "gradeRange": "4thTo8th",
+    "minAge": 9,
+    "maxAge": 14,
+    "price": 100.00,
+    "nextSessionDate": "2025-07-28T15:30:00",
+    "suggest": {
+      "input": ["Brain Teasers Club"]
+    }
+  },
+  {
+    "id": "38",
+    "title": "Drama and Theater Workshop",
+    "description": "Act, improvise, and build stage confidence.",
+    "category": "Performing Arts",
+    "type": "COURSE",
+    "gradeRange": "5thTo10th",
+    "minAge": 10,
+    "maxAge": 15,
+    "price": 220.00,
+    "nextSessionDate": "2025-08-19T14:00:00",
+    "suggest": {
+      "input": ["Drama and Theater Workshop"]
+    }
+  },
+  {
+    "id": "39",
+    "title": "Environment Day Special",
+    "description": "Join our eco-friendly event for hands-on green action.",
+    "category": "Environment",
+    "type": "ONE_TIME",
+    "gradeRange": "2ndTo6th",
+    "minAge": 7,
+    "maxAge": 12,
+    "price": 55.00,
+    "nextSessionDate": "2025-09-05T09:30:00",
+    "suggest": {
+      "input": ["Environment Day Special"]
+    }
+  },
+  {
+    "id": "40",
+    "title": "Comic Book Design Course",
+    "description": "Learn to create and publish your own comic books.",
+    "category": "Arts",
+    "type": "COURSE",
+    "gradeRange": "6thTo12th",
+    "minAge": 12,
+    "maxAge": 18,
+    "price": 270.00,
+    "nextSessionDate": "2025-08-13T10:00:00",
+    "suggest": {
+      "input": ["Comic Book Design Course"]
+    }
+  },
+  {
+    "id": "41",
+    "title": "Photography Basics",
+    "description": "Learn how to take stunning photos with any camera.",
+    "category": "Arts",
+    "type": "COURSE",
+    "gradeRange": "6thTo12th",
+    "minAge": 11,
+    "maxAge": 18,
+    "price": 240.00,
+    "nextSessionDate": "2025-08-21T11:00:00",
+    "suggest": {
+      "input": ["Photography Basics"]
+    }
+  },
+  {
+    "id": "42",
+    "title": "Science Magic Club",
+    "description": "Explore fun science experiments that feel like magic.",
+    "category": "Science",
+    "type": "CLUB",
+    "gradeRange": "3rdTo6th",
+    "minAge": 8,
+    "maxAge": 12,
+    "price": 90.00,
+    "nextSessionDate": "2025-08-24T14:00:00",
+    "suggest": {
+      "input": ["Science Magic Club"]
+    }
+  },
+  {
+    "id": "43",
+    "title": "Story Writing Workshop",
+    "description": "Unlock your imagination and write captivating stories.",
+    "category": "Literature",
+    "type": "COURSE",
+    "gradeRange": "5thTo10th",
+    "minAge": 10,
+    "maxAge": 16,
+    "price": 180.00,
+    "nextSessionDate": "2025-08-16T10:30:00",
+    "suggest": {
+      "input": ["Story Writing Workshop"]
+    }
+  },
+  {
+    "id": "44",
+    "title": "Board Games Club",
+    "description": "Play and learn strategy through classic and new board games.",
+    "category": "Recreation",
+    "type": "CLUB",
+    "gradeRange": "3rdTo7th",
+    "minAge": 8,
+    "maxAge": 13,
+    "price": 100.00,
+    "nextSessionDate": "2025-08-23T13:00:00",
+    "suggest": {
+      "input": ["Board Games Club"]
+    }
+  },
+  {
+    "id": "45",
+    "title": "Public Speaking Bootcamp",
+    "description": "Gain confidence and communication skills for the stage.",
+    "category": "Communication",
+    "type": "COURSE",
+    "gradeRange": "6thTo12th",
+    "minAge": 12,
+    "maxAge": 18,
+    "price": 290.00,
+    "nextSessionDate": "2025-08-17T12:00:00",
+    "suggest": {
+      "input": ["Public Speaking Bootcamp"]
+    }
+  },
+  {
+    "id": "46",
+    "title": "Music Production 101",
+    "description": "Learn the basics of recording and mixing your own music.",
+    "category": "Music",
+    "type": "COURSE",
+    "gradeRange": "7thTo12th",
+    "minAge": 13,
+    "maxAge": 18,
+    "price": 320.00,
+    "nextSessionDate": "2025-08-26T11:00:00",
+    "suggest": {
+      "input": ["Music Production 101"]
+    }
+  },
+  {
+    "id": "47",
+    "title": "Science Fair Prep Workshop",
+    "description": "Get guidance and ideas for creating your science fair project.",
+    "category": "Science",
+    "type": "ONE_TIME",
+    "gradeRange": "4thTo8th",
+    "minAge": 9,
+    "maxAge": 14,
+    "price": 70.00,
+    "nextSessionDate": "2025-08-30T10:00:00",
+    "suggest": {
+      "input": ["Science Fair Prep Workshop"]
+    }
+  },
+  {
+    "id": "48",
+    "title": "Animation Design Club",
+    "description": "Explore frame-by-frame and digital animation creation.",
+    "category": "Technology",
+    "type": "CLUB",
+    "gradeRange": "6thTo12th",
+    "minAge": 12,
+    "maxAge": 18,
+    "price": 210.00,
+    "nextSessionDate": "2025-08-15T15:00:00",
+    "suggest": {
+      "input": ["Animation Design Club"]
+    }
+  },
+  {
+    "id": "49",
+    "title": "Eco Warriors Camp",
+    "description": "One-day event to inspire environmental responsibility.",
+    "category": "Environment",
+    "type": "ONE_TIME",
+    "gradeRange": "2ndTo6th",
+    "minAge": 7,
+    "maxAge": 12,
+    "price": 45.00,
+    "nextSessionDate": "2025-09-10T09:00:00",
+    "suggest": {
+      "input": ["Eco Warriors Camp"]
+    }
+  },
+  {
+    "id": "50",
+    "title": "Rocketry Basics",
+    "description": "Build and launch simple model rockets safely.",
+    "category": "STEM",
+    "type": "COURSE",
+    "gradeRange": "5thTo10th",
+    "minAge": 10,
+    "maxAge": 15,
+    "price": 275.00,
+    "nextSessionDate": "2025-08-20T14:30:00",
+    "suggest": {
+      "input": ["Rocketry Basics"]
+    }
   }
 ]
