@@ -1,0 +1,26 @@
+[
+  {
+    "id": "1",
+    "title": "Intro to Guitar",
+    "description": "Learn the basics of playing acoustic guitar.",
+    "category": "Music",
+    "type": "COURSE",
+    "gradeRange": "1stTo3rd",
+    "minAge": 10,
+    "maxAge": 14,
+    "price": 299.99,
+    "nextSessionDate": "2025-08-01T10:00:00"
+  },
+  {
+    "id": "2",
+    "title": "Chess Club",
+    "description": "Join our after-school chess club.",
+    "category": "Strategy",
+    "type": "CLUB",
+    "gradeRange": "3rdTo6th",
+    "minAge": 8,
+    "maxAge": 12,
+    "price": 149.00,
+    "nextSessionDate": "2025-07-20T15:30:00"
+  }
+]
