@@ -24,6 +24,10 @@ public class CourseDocument {
     private String description;
     @Field(type = FieldType.Keyword)
     private String category;
+
+    public CourseDocument() {
+    }
+
     @Field(type = FieldType.Keyword)
     private String type;
     @Field(type = FieldType.Keyword)
