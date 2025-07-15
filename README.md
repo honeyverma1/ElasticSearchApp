@@ -12,6 +12,7 @@ This command will start an Elasticsearch container locally on port 9200.
 2. To verify, visit http://localhost:9200 in your browser or postman. 
 You should see a JSON response from Elasticsearch if it's working correctly.
 
+### Bulk-Indexing
 
 When you **start the application**, bulk indexing is automatically triggered.
 This loads data from a predefined JSON file into the **Elasticsearch database**. </br>
@@ -45,7 +46,7 @@ JSON includes total count of matches (which should be 5 in this case) and pagina
 2. Search By type (sorted)</br>
 curl - GET http://localhost:8081/api/search?type=ONE_TIME&sort=priceDesc </br>
 Expected Behavior: </br>
-Returns all courses with type "ONE_TIME" and properly sorted in descending order wrt price.</br>
+Returns all courses with type "ONE_TIME" and properly sorted in descending order w.r.t. price.</br>
 JSON includes total count of matches (which should be 12 in this case) and paginated result set.Search By type. The JSON should contain the following elements -
 
 "id": "12",</br>
@@ -90,11 +91,11 @@ curl - GET http://localhost:8081/api/suggest?partial=Science </br>
 Expected Behavior: </br>
 Returns a JSON array of all the titles with Science as there prefix
 JSON includes all the title names. For this curl it should be -
-[
-"Science Club",
-"Science Fair Prep Workshop",
-"Science Fest",
-"Science Magic Club"
+[</br>
+"Science Club",</br>
+"Science Fair Prep Workshop",</br>
+"Science Fest",</br>
+"Science Magic Club"</br>
 ]
 
 
@@ -118,7 +119,7 @@ JSON includes all the title names(there should be 2 elements in this case).The J
 
 [PS - the lombok in my intellij is apparently not working. For which reason, I have made all the necessary constructors 
 and getters/setters in my entity. My guess is maven is not connected to the java version 17 even though it is clearly there in the path variable.
-For some reason it is still connected version 11. But that is for me to look into!]
+For some reason it is still connected version 11. But that is for me to look into!] </br>
 [Another PS - Hope you liked what i have made and faced little to no difficulties in any way]
 
 
